@@ -30,6 +30,143 @@ Square root time complexity means that the algorithm requires O(N^(1/2)) evaluat
 
 (2) Common cases:
 - Loops
-- Nesting
-- Phases
-- Recursion	
+  (i) Time complexity O(n) -> When the iteration variable increases/decreases arithmetically 
+	 and iteration variable = boundary variable.
+  (a) Case 1
+	'''
+	for(let i = 0; i < n; i++) {
+	    <statements>
+	}
+	'''
+
+	ANALYSIS:
+	- For boundary: i < n,
+
+    	  time |  i
+	-------------
+	   1	  0
+	   2	  1
+	   3	  2
+	   4	  3
+	   .	  .
+	   .	  .
+	   .	  .
+	   t	 (n-1)
+
+          Then, t = (n-1) = O(n).
+
+	Some similar cases:
+	  '''
+
+	  let i = 0
+	  while i < n {
+	    i++
+	    <statements>
+	  }
+
+	  '''
+
+  (ii) Time complexity O(sqrt(n)) -> When the iteration variable increase/decrease arithmetically but
+	the boundary variable increase/decrease neither arithmetically nor gemoetrically.
+
+	'''
+	let p = 0; // boundary variable.
+	for(let i = 0; p < n; i++) { // i is iteration variable.
+	    p = p + i;
+	    <statements>
+	}
+	'''
+
+	ANALYSIS:
+	- For boundary: p < n,
+
+    	  time |  p
+	-------------
+	   1	  0 
+	   2	  1 => 0 + 1
+	   3	  3 => 0 + 1 + 2
+	   4	  6 => 0 + 1 + 3
+	   .	  .
+	   .	  .
+	   .	  .
+	   t	 0 + 1 + 3 + ... + t = (t^2 - t) / 2
+
+          When p -> n, then n -> (t^2 - t) / 2, or we could say n ~ t^2.
+	  Then, t = O(sqrt(n)).
+
+	Some similar cases:
+	  '''
+
+	  for(let i = 0; i*i < n; i++) {
+	      <statements>
+	  }
+
+	  '''
+	  '''
+
+	  let i = 1;
+	  let k = 1;
+	  while (k < n) {
+	      <statements>
+	      k = k + i;
+	      i ++;
+	  }
+
+	  '''
+
+  (iii) Time complexity O(sqrt(n)) -> When the iteration variable increases/decreases geometrically 
+	 and iteration variable = boundary variable.
+
+	'''
+	for(let i = 1; i < n; i = c * i) {
+	    <statements>
+	}
+	'''
+
+	ANALYSIS:
+	- For boundary: i < n,
+
+    	  time |  i
+	-------------
+	   1	  1 
+	   2	  c 
+	   3	  c^2 
+	   4	  c^3 
+	   .	  .
+	   .	  .
+	   .	  .
+	   t	  c^(t-1)
+
+          When i -> n, then i -> c^(t-1) or we could say t = logc (n) + 1. 
+	  Then, t = O( log(n) ).
+
+	Some similar cases:
+	  '''
+	  let i = 1;
+	  for(let i=0; i >= 1; i = i / c) {
+	    <statements>
+	  }
+
+	  '''
+	  '''
+	  let i = 1;
+	  while (i < n) {
+	    i = c * i;
+	    <statements>
+	  }
+
+	  '''
+	  '''
+	  let i = n;
+	  while (i >= 1) {
+	    i = i / c;
+	    <statements>
+	  }
+
+	  '''
+
+- Nesting -> For nesting, we only need to multiply the time complexity of each component.
+
+- Phases -> For each phases, we only need to choose the bottle neck.
+- Recursion
+
