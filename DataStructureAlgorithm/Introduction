@@ -1,0 +1,38 @@
+(1) What is algorithm ?
+	The sequence of steps for problem solving.
+
+(2) The characteristics of algorithm:
+	- Input => The input can be zero or more.
+	- Output => At least 1 output.
+	- Defineteness => Everything must be clear.
+	- Finiteness => Consists of finite stages.
+	- Effectiveness => Must be effective as possible.
+
+(3) Measure how good the algorithm:
+    The most common measurement -> Time and Space.
+
+(4) Using Big-O notation to estimate time and space complexity of algorithm:
+    Definition of Big-O (according to math):
+	"""
+	f(N) = O(g(N)), if there exists positive constant c and positive integer N0 
+	such that f(N) <= c * g(N) for all N >= N0.
+
+	"""
+
+    Explanation:
+	- We could say that f(N) is actual function (commonly it is complex function) and O(g(N)) is the approximation function.
+	- The "f(N) <= c * g(N)" means that it is asymptotic upper bound.
+	- g(N) usually a simple function, such as "n", "n^2", "log(n)", etc.
+	- For the choosen g(N), we can choose a constant c then determine 
+	  the min boundary of the approximation works for N >= N0.
+
+    E.g:
+	f(n) = 2n + 3
+	
+	The possible answers:
+	a. g(n) = 3n (that works on n >= 4)  
+		-> O(n)
+	b. g(n) = n^2 (that works on n>=4)
+		-> O(n^2)
+
+	 
