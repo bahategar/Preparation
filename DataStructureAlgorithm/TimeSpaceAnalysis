@@ -1,0 +1,35 @@
+(1) Complexity classes and estimating efficiency:
+	1 < log (n) < Sqrt(n) < n < n log(n) < n^2 < n^3 < 2^n < n!
+	
+	The common cases:
+	(a) O(1) -> The running time of a constant-time algorithm does not depend on the input size.
+	(b) O(log n) -> The algorithm that works by dividing the input size. Common case is we divide the input size, and select which group to focus on.
+
+	(c) O(sqrt(n)) -> The algorithm works by evaluate all the input size but only square root of the input size.
+
+	(d) O(n) -> The algorithm works by going through all the input.
+	(e) O(n log(n)) -> The algorithm works by dividing input size, select which group to focus on, then going through to all the choosen group input.
+	(f) O(n^2) -> The algorithm works by doing two nested loops
+	(g) O(n^3) -> The algorithm works by doing three nested loops.
+	(h) O(2^n) -> The algorithm works by going through all the subset of input elements.
+			NOTE: Remember the power set in mathematics
+	(f) O(n!) -> The algorithm works by going through all the permutations of the input elements.
+
+
+Square root time complexity means that the algorithm requires O(N^(1/2)) evaluations where the size of input is N.
+
+	Input size	Required time complexity
+	-----------------------------------------
+	  n <= 10	  O(n!)
+	  n <= 20	  O(2^n)
+	  n <= 500	  O(n^3)
+	  n <= 5000	  O(n^2)
+	  n <= 10^6	  O(nlog n) or O(n)
+	  n is large	  O(1) or O(log n)
+	
+
+(2) Common cases:
+- Loops
+- Nesting
+- Phases
+- Recursion	
