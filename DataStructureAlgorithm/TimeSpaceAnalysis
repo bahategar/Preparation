@@ -48,9 +48,7 @@ Square root time complexity means that the algorithm requires O(N^(1/2)) evaluat
 	   2	  1
 	   3	  2
 	   4	  3
-	   .	  .
-	   .	  .
-	   .	  .
+	  ...	 ...
 	   t	 (n-1)
 
           Then, t = (n-1) = O(n).
@@ -86,10 +84,8 @@ Square root time complexity means that the algorithm requires O(N^(1/2)) evaluat
 	   2	  1 => 0 + 1
 	   3	  3 => 0 + 1 + 2
 	   4	  6 => 0 + 1 + 3
-	   .	  .
-	   .	  .
-	   .	  .
-	   t	 0 + 1 + 3 + ... + t = (t^2 - t) / 2
+	  ...	  ...
+	   t	  0 + 1 + 3 + ... + t = (t^2 - t) / 2
 
           When p -> n, then n -> (t^2 - t) / 2, or we could say n ~ t^2.
 	  Then, t = O(sqrt(n)).
@@ -132,9 +128,7 @@ Square root time complexity means that the algorithm requires O(N^(1/2)) evaluat
 	   2	  c 
 	   3	  c^2 
 	   4	  c^3 
-	   .	  .
-	   .	  .
-	   .	  .
+	  ...	  ...
 	   t	  c^(t-1)
 
           When i -> n, then i -> c^(t-1) or we could say t = logc (n) + 1. 
@@ -167,6 +161,65 @@ Square root time complexity means that the algorithm requires O(N^(1/2)) evaluat
 
 - Nesting -> For nesting, we only need to multiply the time complexity of each component.
 
-- Phases -> For each phases, we only need to choose the bottle neck.
-- Recursion
+  	'''
+	for (let i=1; i <= n; i++) {
+           for (let j=1; j <= n; j++) {
+		<statements>
+	   }
+	}
+	'''
 
+	ANALYSIS:
+	Time complexity outer loop = O(n)
+	Time complexity inner loop = O(n)
+	Total time complexity = O(n^2)
+
+
+- Phases -> For each phases, we only need to choose the bottle neck.
+  	'''
+
+	for(let i = 0; i < n; i++) {
+	    <statements>
+	}
+
+	for (let i=1; i <= n; i++) {
+           for (let j=1; j <= n; j++) {
+		<statements>
+	   }
+	}
+
+	for(let i = 0; i < n; i++) {
+	    <statements>
+	}
+	'''
+
+	ANALYSIS:
+	Time complexity first loop = O(n)
+	Time complexity second loop = O(n^2) -> The bottle neck.
+	Time complexity third loop = O(n)
+	The total time complexity = O(n^2)
+
+- Recursion -> a. The function calls itself to break the problems into sub-problems (untill reach its base condition) and then solve each sub-problem.
+	       b. The time complexity of each call is O(1). 
+		  If a function calls itself two times then its time complexity is O(2^N)
+		  If it calls three times then its time complexity is O(3^N) and so on.
+
+  	'''
+	function g(n) {
+	  if (n == 1) return;
+	  g(n - 1);
+	  g(n - 1);
+	}
+	'''
+
+	ANALYSIS:
+
+    	  function call |  number of calls
+	  ---------------------------------
+		g(n)		1
+	   	g(n - 1)	2
+		g(n - 2)	4
+		  ...           ...
+		g(1)		2^(n-1)
+
+	  Based on that, the time complexity is: 1 + 2 + 4 + ... + 2^(n-1) = 2^n - 1 = O(2^n)
