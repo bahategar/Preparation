@@ -1,0 +1,7 @@
+Customer Cohort Analysis (by Count)
+Customer Cohort Retention Analysis
+Net Revenue by Cohort
+Net Dollar Retention (aka NDR)
+Cumulative Lifetime Revenue by Cohort
+Customer Lifetime Revenue by Cohort
+Customer Lifetime Value by Cohort
