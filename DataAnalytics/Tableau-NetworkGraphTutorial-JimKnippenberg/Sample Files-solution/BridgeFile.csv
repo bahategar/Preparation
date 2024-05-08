@@ -1,0 +1,527 @@
+Src-Tgt,NodeName,c_Index
+0,High income,1
+1,Aruba,1
+2,Low income,2
+3,Afghanistan,2
+4,Lower middle income,3
+5,Angola,3
+6,Upper middle income,4
+7,Albania,4
+8,High income,5
+9,Andorra,5
+10,,6
+11,Arab World,6
+12,High income,7
+13,United Arab Emirates,7
+14,Upper middle income,8
+15,Argentina,8
+16,Lower middle income,9
+17,Armenia,9
+18,Upper middle income,10
+19,American Samoa,10
+20,High income,11
+21,Antigua and Barbuda,11
+22,High income,12
+23,Australia,12
+24,High income,13
+25,Austria,13
+26,Upper middle income,14
+27,Azerbaijan,14
+28,Low income,15
+29,Burundi,15
+30,High income,16
+31,Belgium,16
+32,Low income,17
+33,Benin,17
+34,Low income,18
+35,Burkina Faso,18
+36,Lower middle income,19
+37,Bangladesh,19
+38,Upper middle income,20
+39,Bulgaria,20
+40,High income,21
+41,Bahrain,21
+42,High income,22
+43,The Bahamas,22
+44,Upper middle income,23
+45,Bosnia and Herzegovina,23
+46,Upper middle income,24
+47,Belarus,24
+48,Upper middle income,25
+49,Belize,25
+50,High income,26
+51,Bermuda,26
+52,Lower middle income,27
+53,Bolivia,27
+54,Upper middle income,28
+55,Brazil,28
+56,High income,29
+57,Barbados,29
+58,High income,30
+59,Brunei,30
+60,Lower middle income,31
+61,Bhutan,31
+62,Upper middle income,32
+63,Botswana,32
+64,Low income,33
+65,Central African Republic,33
+66,High income,34
+67,Canada,34
+68,,35
+69,Central Europe and the Baltics,35
+70,High income,36
+71,Switzerland,36
+72,High income,37
+73,Channel Islands,37
+74,High income,38
+75,Chile,38
+76,Upper middle income,39
+77,China,39
+78,Lower middle income,40
+79,Côte d'Ivoire,40
+80,Lower middle income,41
+81,Cameroon,41
+82,Low income,42
+83,Dem. Rep. Congo,42
+84,Lower middle income,43
+85,Congo,43
+86,Upper middle income,44
+87,Colombia,44
+88,Low income,45
+89,Comoros,45
+90,Lower middle income,46
+91,Cabo Verde,46
+92,Upper middle income,47
+93,Costa Rica,47
+94,,48
+95,Caribbean small states,48
+96,Upper middle income,49
+97,Cuba,49
+98,High income,50
+99,Curaçao,50
+100,High income,51
+101,Cayman Islands,51
+102,High income,52
+103,Cyprus,52
+104,High income,53
+105,Czech Republic,53
+106,High income,54
+107,Germany,54
+108,Lower middle income,55
+109,Djibouti,55
+110,Upper middle income,56
+111,Dominica,56
+112,High income,57
+113,Denmark,57
+114,Upper middle income,58
+115,Dominican Republic,58
+116,Upper middle income,59
+117,Algeria,59
+118,,60
+119,East Asia & Pacific (excluding high income),60
+120,,61
+121,Early-demographic dividend,61
+122,,62
+123,East Asia & Pacific,62
+124,,63
+125,Europe & Central Asia (excluding high income),63
+126,,64
+127,Europe & Central Asia,64
+128,Upper middle income,65
+129,Ecuador,65
+130,Lower middle income,66
+131,Egypt,66
+132,,67
+133,Euro area,67
+134,Low income,68
+135,Eritrea,68
+136,High income,69
+137,Spain,69
+138,High income,70
+139,Estonia,70
+140,Low income,71
+141,Ethiopia,71
+142,,72
+143,European Union,72
+144,,73
+145,Fragile and conflict affected situations,73
+146,High income,74
+147,Finland,74
+148,Upper middle income,75
+149,Fiji,75
+150,High income,76
+151,France,76
+152,High income,77
+153,Faroe Islands,77
+154,Lower middle income,78
+155,Micronesia,78
+156,Upper middle income,79
+157,Gabon,79
+158,High income,80
+159,United Kingdom,80
+160,Lower middle income,81
+161,Georgia,81
+162,Lower middle income,82
+163,Ghana,82
+164,High income,83
+165,Gibraltar,83
+166,Low income,84
+167,Guinea,84
+168,Low income,85
+169,The Gambia,85
+170,Low income,86
+171,Guinea-Bissau,86
+172,Upper middle income,87
+173,Equatorial Guinea,87
+174,High income,88
+175,Greece,88
+176,Upper middle income,89
+177,Grenada,89
+178,High income,90
+179,Greenland,90
+180,Lower middle income,91
+181,Guatemala,91
+182,High income,92
+183,Guam,92
+184,Upper middle income,93
+185,Guyana,93
+186,,94
+187,High income,94
+188,High income,95
+189,"Hong Kong SAR, China",95
+190,Lower middle income,96
+191,Honduras,96
+192,,97
+193,Heavily indebted poor countries (HIPC),97
+194,Upper middle income,98
+195,Croatia,98
+196,Low income,99
+197,Haiti,99
+198,High income,100
+199,Hungary,100
+200,,101
+201,IBRD only,101
+202,,102
+203,IDA & IBRD total,102
+204,,103
+205,IDA total,103
+206,,104
+207,IDA blend,104
+208,Lower middle income,105
+209,Indonesia,105
+210,,106
+211,IDA only,106
+212,High income,107
+213,Isle of Man,107
+214,Lower middle income,108
+215,India,108
+216,High income,109
+217,Ireland,109
+218,Upper middle income,110
+219,Iran,110
+220,Upper middle income,111
+221,Iraq,111
+222,High income,112
+223,Iceland,112
+224,High income,113
+225,Israel,113
+226,High income,114
+227,Italy,114
+228,Upper middle income,115
+229,Jamaica,115
+230,Lower middle income,116
+231,Jordan,116
+232,High income,117
+233,Japan,117
+234,Upper middle income,118
+235,Kazakhstan,118
+236,Lower middle income,119
+237,Kenya,119
+238,Lower middle income,120
+239,Kyrgyz Republic,120
+240,Lower middle income,121
+241,Cambodia,121
+242,Lower middle income,122
+243,Kiribati,122
+244,High income,123
+245,St. Kitts and Nevis,123
+246,High income,124
+247,Korea,124
+248,High income,125
+249,Kuwait,125
+250,,126
+251,Latin America & Caribbean (excluding high income),126
+252,Lower middle income,127
+253,Lao PDR,127
+254,Upper middle income,128
+255,Lebanon,128
+256,Low income,129
+257,Liberia,129
+258,Upper middle income,130
+259,Libya,130
+260,Upper middle income,131
+261,St. Lucia,131
+262,,132
+263,Latin America & Caribbean,132
+264,,133
+265,Least developed countries: UN classification,133
+266,,134
+267,Low income,134
+268,High income,135
+269,Liechtenstein,135
+270,Lower middle income,136
+271,Sri Lanka,136
+272,,137
+273,Lower middle income,137
+274,,138
+275,Low & middle income,138
+276,Lower middle income,139
+277,Lesotho,139
+278,,140
+279,Late-demographic dividend,140
+280,High income,141
+281,Lithuania,141
+282,High income,142
+283,Luxembourg,142
+284,High income,143
+285,Latvia,143
+286,High income,144
+287,"Macao SAR, China",144
+288,High income,145
+289,St. Martin (French part),145
+290,Lower middle income,146
+291,Morocco,146
+292,High income,147
+293,Monaco,147
+294,Lower middle income,148
+295,Moldova,148
+296,Low income,149
+297,Madagascar,149
+298,Upper middle income,150
+299,Maldives,150
+300,,151
+301,Middle East & North Africa,151
+302,Upper middle income,152
+303,Mexico,152
+304,Upper middle income,153
+305,Marshall Islands,153
+306,,154
+307,Middle income,154
+308,Upper middle income,155
+309,Macedonia,155
+310,Low income,156
+311,Mali,156
+312,High income,157
+313,Malta,157
+314,Lower middle income,158
+315,Myanmar,158
+316,,159
+317,Middle East & North Africa (excluding high income),159
+318,Upper middle income,160
+319,Montenegro,160
+320,Lower middle income,161
+321,Mongolia,161
+322,High income,162
+323,Northern Mariana Islands,162
+324,Low income,163
+325,Mozambique,163
+326,Lower middle income,164
+327,Mauritania,164
+328,Upper middle income,165
+329,Mauritius,165
+330,Low income,166
+331,Malawi,166
+332,Upper middle income,167
+333,Malaysia,167
+334,,168
+335,North America,168
+336,Upper middle income,169
+337,Namibia,169
+338,High income,170
+339,New Caledonia,170
+340,Low income,171
+341,Niger,171
+342,Lower middle income,172
+343,Nigeria,172
+344,Lower middle income,173
+345,Nicaragua,173
+346,High income,174
+347,Netherlands,174
+348,High income,175
+349,Norway,175
+350,Low income,176
+351,Nepal,176
+352,Upper middle income,177
+353,Nauru,177
+354,High income,178
+355,New Zealand,178
+356,,179
+357,OECD members,179
+358,High income,180
+359,Oman,180
+360,,181
+361,Other small states,181
+362,Lower middle income,182
+363,Pakistan,182
+364,Upper middle income,183
+365,Panama,183
+366,Upper middle income,184
+367,Peru,184
+368,Lower middle income,185
+369,Philippines,185
+370,High income,186
+371,Palau,186
+372,Lower middle income,187
+373,Papua New Guinea,187
+374,High income,188
+375,Poland,188
+376,,189
+377,Pre-demographic dividend,189
+378,High income,190
+379,Puerto Rico,190
+380,Low income,191
+381,Dem. People's Rep. Korea,191
+382,High income,192
+383,Portugal,192
+384,Upper middle income,193
+385,Paraguay,193
+386,Lower middle income,194
+387,West Bank and Gaza,194
+388,,195
+389,Pacific island small states,195
+390,,196
+391,Post-demographic dividend,196
+392,High income,197
+393,French Polynesia,197
+394,High income,198
+395,Qatar,198
+396,Upper middle income,199
+397,Romania,199
+398,Upper middle income,200
+399,Russia,200
+400,Low income,201
+401,Rwanda,201
+402,,202
+403,South Asia,202
+404,High income,203
+405,Saudi Arabia,203
+406,Lower middle income,204
+407,Sudan,204
+408,Low income,205
+409,Senegal,205
+410,High income,206
+411,Singapore,206
+412,Lower middle income,207
+413,Solomon Islands,207
+414,Low income,208
+415,Sierra Leone,208
+416,Lower middle income,209
+417,El Salvador,209
+418,High income,210
+419,San Marino,210
+420,Low income,211
+421,Somalia,211
+422,Upper middle income,212
+423,Serbia,212
+424,,213
+425,Sub-Saharan Africa (excluding high income),213
+426,Low income,214
+427,South Sudan,214
+428,,215
+429,Sub-Saharan Africa,215
+430,,216
+431,Small states,216
+432,Lower middle income,217
+433,São Tomé and Principe,217
+434,Upper middle income,218
+435,Suriname,218
+436,High income,219
+437,Slovak Republic,219
+438,High income,220
+439,Slovenia,220
+440,High income,221
+441,Sweden,221
+442,Lower middle income,222
+443,Swaziland,222
+444,High income,223
+445,Sint Maarten (Dutch part),223
+446,High income,224
+447,Seychelles,224
+448,Lower middle income,225
+449,Syrian Arab Republic,225
+450,High income,226
+451,Turks and Caicos Islands,226
+452,Low income,227
+453,Chad,227
+454,,228
+455,East Asia & Pacific (IDA & IBRD),228
+456,,229
+457,Europe & Central Asia (IDA & IBRD),229
+458,Low income,230
+459,Togo,230
+460,Upper middle income,231
+461,Thailand,231
+462,Lower middle income,232
+463,Tajikistan,232
+464,Upper middle income,233
+465,Turkmenistan,233
+466,,234
+467,Latin America & Caribbean (IDA & IBRD),234
+468,Lower middle income,235
+469,Timor-Leste,235
+470,,236
+471,Middle East & North Africa (IDA & IBRD),236
+472,Upper middle income,237
+473,Tonga,237
+474,,238
+475,South Asia (IDA & IBRD),238
+476,,239
+477,Sub-Saharan Africa (IDA & IBRD),239
+478,High income,240
+479,Trinidad and Tobago,240
+480,Lower middle income,241
+481,Tunisia,241
+482,Upper middle income,242
+483,Turkey,242
+484,Upper middle income,243
+485,Tuvalu,243
+486,Low income,244
+487,Tanzania,244
+488,Low income,245
+489,Uganda,245
+490,Lower middle income,246
+491,Ukraine,246
+492,,247
+493,Upper middle income,247
+494,High income,248
+495,Uruguay,248
+496,High income,249
+497,United States,249
+498,Lower middle income,250
+499,Uzbekistan,250
+500,Upper middle income,251
+501,St. Vincent and the Grenadines,251
+502,Upper middle income,252
+503,Venezuela,252
+504,High income,253
+505,British Virgin Islands,253
+506,High income,254
+507,Virgin Islands,254
+508,Lower middle income,255
+509,Vietnam,255
+510,Lower middle income,256
+511,Vanuatu,256
+512,,257
+513,World,257
+514,Upper middle income,258
+515,Samoa,258
+516,Lower middle income,259
+517,Kosovo,259
+518,Lower middle income,260
+519,Yemen,260
+520,Upper middle income,261
+521,South Africa,261
+522,Lower middle income,262
+523,Zambia,262
+524,Low income,263
+525,Zimbabwe,263
