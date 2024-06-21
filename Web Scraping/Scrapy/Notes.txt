@@ -1,0 +1,15 @@
+Requirements:
+  1. scrapy
+  2. ipython => (for create scrapy shell)
+
+How to configurate scrapy shell:
+  1. go to "scrapy.cfg" => under "[settings]" create code line "shell=ipython"
+
+How to run scrapy shell: At terminal write command "scrapy shell"
+
+How to initialize project scrapy:
+  1. at terminal write command "scrapy startproject <projectname>"
+  2. change directory to the <projectname> 
+    (NOTE: you can change to anywhere place as long as inside the <projectname> directory; e.g inside "spiders" folder)
+  3. generate new spider by write command: "scrapy genspider <name spider> <allowed scraped domain>
+  4. for crawling spider write command: "scrapy crawl <spider_name> "
