@@ -1,5 +1,7 @@
 import scrapy
 
+# CASES:
+#   - Scraping multiple page
 
 class Spider1Spider(scrapy.Spider):
     name = "spider_1"
