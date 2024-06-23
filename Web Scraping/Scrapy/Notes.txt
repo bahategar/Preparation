@@ -12,4 +12,5 @@ How to initialize project scrapy:
   2. change directory to the <projectname> 
     (NOTE: you can change to anywhere place as long as inside the <projectname> directory; e.g inside "spiders" folder)
   3. generate new spider by write command: "scrapy genspider <name spider> <allowed scraped domain>
-  4. for crawling spider write command: "scrapy crawl <spider_name> "
+  4. for crawling spider write command: "scrapy crawl <spider_name> " 
+     if you want to show it on file csv or json: "scrapy crawl <spider_name> -O <filename with its extension>"
