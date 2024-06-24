@@ -73,14 +73,11 @@ class PostgresPipeline:
 
     def __init__(self):
         # Connection details
-        hostname = 'localhost'
-        username = 'postgres'
-        password = '123456'
-        database = 'books'
-        # hostname = os.getenv('HOSTNAME')
-        # username = os.getenv('USERNAME')
-        # password = os.getenv('PASSWORD')
-        # database = os.getenv('DATABASE')
+
+        hostname = os.getenv('HOSTNAME')
+        username = os.getenv('USERNAME')
+        password = os.getenv('PASSWORD')
+        database = os.getenv('DATABASE')
 
         self.connection = psycopg2.connect(host=hostname,
                                             user=username, 
