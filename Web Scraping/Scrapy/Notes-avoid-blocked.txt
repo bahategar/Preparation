@@ -1,0 +1,19 @@
+Why we get blocked when web scraping?
+- What is headers?
+  Headers is place to store metadata about the request or response.
+
+  Some websites have its antibot, so to avoid getting blocked from website we just need to modify the headers. 
+  In general there are two level to avoid getting blocked:
+    (1) Modify its user-agent only in each request ==> For simple antibot, they just check the user-agent only and assume
+          different user-agent means different person.
+
+        NOTE: User-agent is sub-part of headers that give information about 
+    (2) Modify all headers request information (and ip address) in each request ==> In case of modification all headers, we need to modify our ip address too.
+          Basically, we need proxy (third-party to access a website) that can help modify ip address.
+          
+
+  NOTE: For complex antibot, we have to modify all headers in each request.
+
+Explaining & Using User Agents to ByPass Getting blocked
+
+Explaining & Using Request Headers to ByPass Getting Blocked

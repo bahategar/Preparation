@@ -6,7 +6,7 @@
 import scrapy
 
 
-class ConnectDbPgItem(scrapy.Item):
+class ManipulationUserAgentItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

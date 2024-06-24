@@ -12,6 +12,27 @@ BOT_NAME = "connect_db_pg"
 SPIDER_MODULES = ["connect_db_pg.spiders"]
 NEWSPIDER_MODULE = "connect_db_pg.spiders"
 
+# Format csv:
+# FEEDS = {
+#     'booksdata.csv': {
+#         'format': 'csv',
+#         'encoding': 'utf8',
+#         'store_empty': False,
+#         'fields': None,
+#         'overwrite': True,
+#     },
+# }
+
+# Format json:
+FEEDS = {
+    'booksdata.json': {
+        'format': 'json',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'fields': None,
+        'indent': 4,
+    },
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "connect_db_pg (+http://www.yourdomain.com)"
@@ -62,9 +83,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "connect_db_pg.pipelines.ConnectDbPgPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "connect_db_pg.pipelines.ConnectDbPgPipeline": 300,
+   "connect_db_pg.pipelines.PostgresPipeline": 400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

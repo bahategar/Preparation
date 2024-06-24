@@ -35,6 +35,8 @@ class Spider2Spider(scrapy.Spider):
             'url': response.url,
             'title': response.xpath("//div[contains(@class, 'product_main')]/h1/text()").get(),
             'stars': response.xpath("//div[contains(@class, 'product_main')]/p[contains(@class, 'star')]/@class").get(),
+            'category': response.xpath("//ul/li[@class='active']/preceding-sibling::li[1]/a/text()").get(),
+            'upc': response.xpath("(//table//td)[1]/text()").get(),
             'product_type': response.xpath("(//table//td)[2]/text()").get(),
             'price_excl_tax': response.xpath("(//table//td)[3]/text()").get(),
             'price_incl_tax': response.xpath("(//table//td)[4]/text()").get(),
@@ -42,6 +44,6 @@ class Spider2Spider(scrapy.Spider):
             'availability': response.xpath("(//table//td)[6]/text()").get(),
             'num_reviews': response.xpath("(//table//td)[7]/text()").get(),
             'description': response.xpath("//div[@id='product_description']/following-sibling::p/text()").get(),
-            'price': response.xpath("//p[@class='price_color']").get(),
+            'price': response.xpath("//p[@class='price_color']/text()").get(),
         }
 

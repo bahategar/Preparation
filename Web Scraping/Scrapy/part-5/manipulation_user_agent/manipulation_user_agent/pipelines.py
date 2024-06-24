@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class ConnectDbPgPipeline:
+class ManipulationUserAgentPipeline:
     def process_item(self, item, spider):
         return item

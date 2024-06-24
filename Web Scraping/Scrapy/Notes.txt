@@ -14,3 +14,61 @@ How to initialize project scrapy:
   3. generate new spider by write command: "scrapy genspider <name spider> <allowed scraped domain>
   4. for crawling spider write command: "scrapy crawl <spider_name> " 
      if you want to show it on file csv or json: "scrapy crawl <spider_name> -O <filename with its extension>"
+
+Save scraping result:
+- By setting the default feeder:
+  1. Go to settings.py
+  2. Write code:
+	    a. For csv file:
+          FEEDS = {
+              'booksdata.csv': {
+                  'format': 'csv',
+                  'encoding': 'utf8',
+                  'store_empty': False,
+                  'fields': None,
+                  'overwrite': True,
+              },
+          }
+
+      b. For json file:
+          FEEDS = {
+              'booksdata.json': {
+                  'format': 'json',
+                  'encoding': 'utf8',
+                  'store_empty': False,
+                  'fields': None,
+                  'indent': 4,
+              },
+          }
+
+  NOTE: If we already set the default for feeder, we do not have to write additional command "-O <filename with its extension>"
+
+- Alternative by setting its custom_settings inside the spiders (<spider_name>.py). 
+  1. Write new code inside the spider class (defined by scrapy):
+      custom_settings = { FEEDS : {
+                            'booksdata.json': {
+                                    'format': 'json',
+                                    'encoding': 'utf8',
+                                    'store_empty': False,
+                                    'fields': None,
+                                    'indent': 4,
+                            },
+                          }
+                        }
+
+    NOTE: It will overwrite the default setting. Also we do not have to write additional command "-O <filename with its extension>"
+
+
+How to modify scraped result before save it
+- Inside "items.py" directly: Inside scrapy.Field(), add argument serializer=<function_for_modification>.
+
+- Inside pipeline: Write inside process_item (built-in class or not) method.
+
+How to modify user-agent
+(1) Set it as default, write code inside settings.py: USER_AGENT = <user-agent>
+    NOTE: It's not dynamic.
+(2) Define it inside spider python file everytime get request a webpage:
+    e.g: Inside the follow method, 
+      response.follow(<url>, headers={"User-Agent": <user-agent>})
+
+(3) Define it inside middleware
