@@ -1,0 +1,62 @@
+The goal: Create Item object and pipeline
+
+Docs Item: https://docs.scrapy.org/en/latest/topics/items.html
+
+Creating Item Object and Declaring Fields:
+
+import scrapy
+
+# Creating item object: 
+#   class <name>(scrapy.Item):
+#     pass
+
+class Product(scrapy.Item): # the class use "scrapy.Item" object as argument
+    # Define the fields for the items:
+    # <name field> = scrapy.Field() # 
+
+    # e.g:
+    # name = scrapy.Field()
+    # price = scrapy.Field()
+    # stock = scrapy.Field()
+    # tags = scrapy.Field()
+    # last_updated = scrapy.Field(serializer=str)
+
+    # Adding serializer into field (note: serializer additional function for modification value before we add it into object)
+    # <name field> = scrapy.Field(serializer=serializer_function)
+    # NOTE: serializer_function is a function.
+
+
+# NOTE: Don't forget to import the items python file into spider python file.
+
+
+Docs item pipeline: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+Typical uses of item pipelines are:
+- cleansing HTML data
+- validating scraped data (checking that the items contain certain fields)
+- checking for duplicates (and dropping them)
+- storing the scraped item in a database
+
+Two important things in pipeline component:
+(1) Method process_item(self, item, spider) ==> It must be added in class. This method is called for every item pipeline component.
+(2) ItemAdapter class ==> It's a wrapper for data container objects for handling items in the Scrapy item pipeline.
+
+Example template item pipeline:
+
+from itemadapter import ItemAdapter
+
+class <item pipeline name>:
+  def process_item(self, item, spider):
+    
+    adapter = ItemAdapter(item)
+    pass
+
+# NOTE: Don't forget to add pipeline into ITEM_PIPELINES in settings.py for activation.
+
+  def open_spider(self, spider):
+    # This is built-in method. This method is called when the spider is opened.
+    pass
+
+  def close_spider(self, spider):
+    # This is built-in method. This method is called when the spider is closed.
+    pass

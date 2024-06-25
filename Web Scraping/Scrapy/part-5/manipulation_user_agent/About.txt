@@ -1,0 +1,10 @@
+The goal: Manipulation user-agent inside spider file
+==> We set our headers everytime we make request.
+
+
+(1) Using Request object:
+    scrapy.Request(url, headers={'User-Agent': str(<user agent>)})
+docs: https://docs.scrapy.org/en/latest/topics/request-response.html#request-objects
+
+(2) Using response.follow:
+    response.follow(url, headers={'User-Agent': str(<user agent>)})

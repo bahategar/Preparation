@@ -1,0 +1,50 @@
+The goal: Manipulation user-agent inside downloader middleware
+
+The downloader middleware is a framework of hooks into Scrapy’s request/response processing. 
+    It’s a light, low-level system for globally altering Scrapy’s requests and responses.
+
+The main entry point is the from_crawler class method, which receives a Crawler instance. 
+    The Crawler object gives you access like Settings and Signals.
+NOTE: 
+    - Signals => Scrapy uses signals extensively to notify when certain events occur.
+    - Settings => The Scrapy settings allows you to customize the behaviour of all Scrapy components, including the core, extensions, pipelines and spiders themselves.
+
+DOCS: https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+
+Template:
+
+class <downloader middleware>:
+    # Not all methods need to be defined. If a method is not defined,
+    # scrapy acts as if the downloader middleware does not modify the
+    # passed objects.
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # If present, this classmethod is called to create a middleware instance from a Crawler. 
+        # It must return a new instance of the middleware.
+
+        # - Parameters: crawler (Crawler object) – crawler that uses this middleware
+    
+    def process_request(request, spider):
+        # This method is called for each request that goes through the download middleware.
+        # process_request() should either: return None, return a Response object, return a Request object, or raise IgnoreRequest.
+
+        # - Parameters: request (Request object) – the request being processed
+        #               spider (Spider object) – the spider for which this request is intended
+
+    def process_response(request, response, spider):
+        # should either: return a Response object, return a Request object or raise a IgnoreRequest exception.
+
+        # - Parameters: request (is a Request object) – the request that originated the response
+        #               response (Response object) – the response being processed
+        #               spider (Spider object) – the spider for which this response is intended
+    
+    def process_exception(request, exception, spider):
+        # Scrapy calls process_exception() when a download handler or a process_request() (from a downloader middleware) 
+        #   raises an exception (including an IgnoreRequest exception).
+    
+        # - Parameters: request (is a Request object) – the request that generated the exception
+        #               exception (an Exception object) – the raised exception
+        #               spider (Spider object) – the spider for which this request is intended
+
+NOTE: Don't forget to turn activate the DOWNLOADER_MIDDLEWARES in settings.py

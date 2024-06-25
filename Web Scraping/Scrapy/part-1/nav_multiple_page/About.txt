@@ -1,0 +1,36 @@
+The goal: Intoduction about spider component
+
+Concept: Scrapy uses Request and Response objects for crawling web sites.
+
+Default object:
+- Request: Object that generated in the spiders and pass across the system until they reach the Downloader.
+- Response: Object that returned from Downloader,  which travels back to the spider that issued the request.
+Docs Request-Response:
+https://docs.scrapy.org/en/latest/topics/request-response.html
+
+
+Docs Spider: 
+https://docs.scrapy.org/en/latest/topics/spiders.html
+
+Class <spidername>(scrapy.Spider):
+    name = str(<name spider>) # Name of spider
+    allowed_domains = list(<allowed_domains>) # the domain that allowed for spider to access.
+    start_urls = list(<urls>) # The starting url for scraping.
+
+
+    def start_requests(self):
+    # Note:
+    # - If this function exist, scrapy will run this function. if it is not it will work of the link inside 'start_urls' variable.
+    # - This method must return an iterable with the first Requests to crawl for this spider. 
+    # - It is called by Scrapy when the spider is opened for scraping. 
+    # - Scrapy calls it only once, so it is safe to implement start_requests() as a generator.
+    pass
+
+
+    def parse(self, response):
+    # Note: 
+    # - The parse method is in charge of processing the response and returning scraped data and/or more URLs to follow.
+    # - This is built-in method
+    # - This is the default callback used by Scrapy to process downloaded responses, when their requests don’t specify a callback.
+    # - It must return a Request object, an item object, an iterable of Request objects and/or item objects, or None.
+    pass
