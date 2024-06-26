@@ -1,24 +1,49 @@
 import scrapy
-from manipulation_user_agent_middleware.items import BookItem
+import random
+from proxy_api.items import BookItem
+from urllib.parse import urlencode
 
-class Spider6Spider(scrapy.Spider):
-    name = "spider_6"
+#  DO NOT NEED FUNCTION IF USING MIDDLEWARE
+API_KEY = ''
+
+def get_proxy_url(url):
+    payload = {'api_key': API_KEY, 'url': url}
+    proxy_url = 'https://proxy.scrapeops.io/v1/?' + urlencode(payload)
+    return proxy_url
+
+class Spider8Spider(scrapy.Spider):
+    name = "spider_8"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com/"]
+
+    def start_requests(self):
+        # If this function exist, scrapy will run this function.
+        #  if it is not it will work of the link inside 'start_urls' variable
+        yield scrapy.Request(url=self.start_urls[0], callback=self.parse)
 
     def parse(self, response):
         books = response.xpath("//article[@class='product_pod']")
 
         for book in books:
-            url_book_page = book.xpath(".//h3//a/@href").get()
+            relative_url = book.xpath(".//h3//a/@href").get()
 
-
-            yield response.follow(url_book_page, callback=self.parse_book_page)
+            if 'catalogue/' in relative_url:
+                book_url = 'https://books.toscrape.com/' + relative_url
+            else:
+                book_url = 'https://books.toscrape.com/catalogue/' + relative_url
+    
+            yield scrapy.Request(url=get_proxy_url(book_url), callback=self.parse)
                 
         next_page_url = response.xpath("//li[@class='next']/a/@href").get()
 
         if next_page_url is not None:
-            yield response.follow(next_page_url, callback=self.parse)
+            if 'catalogue/' in next_page_url:
+                next_page_url = 'https://books.toscrape.com/' + next_page_url
+            else:
+                next_page_url = 'https://books.toscrape.com/catalogue' + next_page_url
+            
+
+            yield scrapy.Request(url=get_proxy_url(next_page_url), callback=self.parse_book_page)
 
     def parse_book_page(self, response):
         book_item = BookItem()
@@ -38,3 +63,4 @@ class Spider6Spider(scrapy.Spider):
         book_item['price'] = response.xpath("//p[@class='price_color']/text()").get()
 
         yield book_item
+

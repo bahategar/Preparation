@@ -1,4 +1,4 @@
-# Scrapy settings for manipulation_user_agent project
+# Scrapy settings for audiobooks project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,39 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "manipulation_user_agent"
+BOT_NAME = "audiobooks"
 
-SPIDER_MODULES = ["manipulation_user_agent.spiders"]
-NEWSPIDER_MODULE = "manipulation_user_agent.spiders"
+SPIDER_MODULES = ["audiobooks.spiders"]
+NEWSPIDER_MODULE = "audiobooks.spiders"
 
-# SET DEFAULT FEED
-# Format csv:
-# FEEDS = {
-#     'booksdata.csv': {
-#         'format': 'csv',
-#         'encoding': 'utf8',
-#         'store_empty': False,
-#         'fields': None,
-#         'overwrite': True,
-#     },
-# }
-
-# Format json:
-# FEEDS = {
-#     'booksdata.json': {
-#         'format': 'json',
-#         'encoding': 'utf8',
-#         'store_empty': False,
-#         'fields': None,
-#         'indent': 4,
-#     },
-# }
-
-# Setting USER_AGENT by default
-# USER_AGENT = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "manipulation_user_agent (+http://www.yourdomain.com)"
+#USER_AGENT = "audiobooks (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -70,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "manipulation_user_agent.middlewares.ManipulationUserAgentSpiderMiddleware": 543,
+#    "audiobooks.middlewares.AudiobooksSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "manipulation_user_agent.middlewares.ManipulationUserAgentDownloaderMiddleware": 543,
+#    "audiobooks.middlewares.AudiobooksDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -87,10 +62,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   "manipulation_user_agent.pipelines.ManipulationUserAgentPipeline": 300,
-#    "connect_db_pg.pipelines.PostgresPipeline": 400,
-}
+#ITEM_PIPELINES = {
+#    "audiobooks.pipelines.AudiobooksPipeline": 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

@@ -1,0 +1,7 @@
+The goal: Manipulation proxy using proxy API inside package.
+
+In this case we use package from scrapeops.io. Actually it's package version from part_8
+
+DOCS: 
+https://pypi.org/project/scrapeops-scrapy-proxy-sdk/
+https://github.com/ScrapeOps/scrapeops-scrapy-sdk

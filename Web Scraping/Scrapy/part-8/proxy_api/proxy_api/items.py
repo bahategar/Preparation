@@ -6,7 +6,7 @@
 import scrapy
 
 
-class ManipulationUserAgentMiddlewareItem(scrapy.Item):
+class ProxyApiItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

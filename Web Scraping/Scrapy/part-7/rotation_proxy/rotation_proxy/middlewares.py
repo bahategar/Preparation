@@ -9,7 +9,7 @@ from scrapy import signals
 from itemadapter import is_item, ItemAdapter
 
 
-class ManipulationUserAgentMiddlewareSpiderMiddleware:
+class RotationProxySpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -56,7 +56,7 @@ class ManipulationUserAgentMiddlewareSpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class ManipulationUserAgentMiddlewareDownloaderMiddleware:
+class RotationProxyDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -101,6 +101,7 @@ class ManipulationUserAgentMiddlewareDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
 
 # Middleware Setting Crawler Manipulation (User-Header)
 from urllib.parse import urlencode

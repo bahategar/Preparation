@@ -1,4 +1,4 @@
-# Scrapy settings for manipulation_user_agent project
+# Scrapy settings for rotation_proxy project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,39 +7,20 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "manipulation_user_agent"
+BOT_NAME = "rotation_proxy"
 
-SPIDER_MODULES = ["manipulation_user_agent.spiders"]
-NEWSPIDER_MODULE = "manipulation_user_agent.spiders"
+SPIDER_MODULES = ["rotation_proxy.spiders"]
+NEWSPIDER_MODULE = "rotation_proxy.spiders"
 
-# SET DEFAULT FEED
-# Format csv:
-# FEEDS = {
-#     'booksdata.csv': {
-#         'format': 'csv',
-#         'encoding': 'utf8',
-#         'store_empty': False,
-#         'fields': None,
-#         'overwrite': True,
-#     },
-# }
-
-# Format json:
-# FEEDS = {
-#     'booksdata.json': {
-#         'format': 'json',
-#         'encoding': 'utf8',
-#         'store_empty': False,
-#         'fields': None,
-#         'indent': 4,
-#     },
-# }
-
-# Setting USER_AGENT by default
-# USER_AGENT = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36'
+# ROTATING-PROXY ADDITIONAL SETTING
+ROTATING_PROXY_LIST = [
+    '91.185.236.24:4145',
+    '103.215.24.162:5678',
+    '66.78.54.93:20000',
+]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "manipulation_user_agent (+http://www.yourdomain.com)"
+#USER_AGENT = "rotation_proxy (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -70,14 +51,18 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "manipulation_user_agent.middlewares.ManipulationUserAgentSpiderMiddleware": 543,
+#    "rotation_proxy.middlewares.RotationProxySpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "manipulation_user_agent.middlewares.ManipulationUserAgentDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    # "rotation_proxy.middlewares.RotationProxyDownloaderMiddleware": 543,
+    # "manipulation_user_agent_middleware.middlewares.ScrapeOpsFakeUserAgentMiddleware": 400,
+    # "manipulation_user_agent_middleware.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware": 400,
+    "rotating_proxies.middlewares.RotatingProxyMiddleware": 610,
+    "rotating_proxies.middlewares.BanDetectionMiddleware": 620,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -88,8 +73,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   "manipulation_user_agent.pipelines.ManipulationUserAgentPipeline": 300,
-#    "connect_db_pg.pipelines.PostgresPipeline": 400,
+   "rotation_proxy.pipelines.RotationProxyPipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

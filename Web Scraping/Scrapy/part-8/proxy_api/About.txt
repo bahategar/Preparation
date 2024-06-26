@@ -1,0 +1,5 @@
+The goal: Manipulation proxy using proxy API.
+
+The concept ==> We have to modify request url into api format.
+
+In this case we use scrapeops.io proxy api. DOCS: https://scrapeops.io/docs/web-scraping-proxy-api-aggregator/quickstart/

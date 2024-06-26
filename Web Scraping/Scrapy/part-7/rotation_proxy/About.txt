@@ -1,0 +1,6 @@
+The goal: Manipulation proxy using installed package.
+
+Package: https://pypi.org/project/scrapy-rotating-proxies/
+
+If we use installed package, we just need to add the package class
+    into the DOWNLOADER_MIDDLEWARES in settings.py

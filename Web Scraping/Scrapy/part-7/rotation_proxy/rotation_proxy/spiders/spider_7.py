@@ -1,10 +1,23 @@
 import scrapy
-from manipulation_user_agent_middleware.items import BookItem
+from rotation_proxy.items import BookItem
 
-class Spider6Spider(scrapy.Spider):
-    name = "spider_6"
+
+class Spider7Spider(scrapy.Spider):
+    name = "spider_7"
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com/"]
+
+    custom_settings = {
+        'FEEDS': {
+            'booksdata.json': {
+                'format': 'json',
+                'encoding': 'utf-8',
+                'store_empty': False,
+                'fields': None,
+                'indent': 4,
+            }
+        }
+    }
 
     def parse(self, response):
         books = response.xpath("//article[@class='product_pod']")

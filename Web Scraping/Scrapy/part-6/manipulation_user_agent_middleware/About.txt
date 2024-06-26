@@ -1,4 +1,4 @@
-The goal: Manipulation user-agent inside downloader middleware
+The goal: Manipulation user-agent & header inside downloader middleware
 
 The downloader middleware is a framework of hooks into Scrapy’s request/response processing. 
     It’s a light, low-level system for globally altering Scrapy’s requests and responses.
