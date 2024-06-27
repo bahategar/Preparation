@@ -1,0 +1,50 @@
+Association analysis ==> To determine "what goes with what"
+(I) Association rules (or affinity analysis) ==> Find general association patterns between items in large databases.
+e.g application: (1) Bundling product recommendation. 
+
+(II) Collaborative filtering ==> Find individual user level patterns. This method uses individual users' preferences.
+e.g: Personalizer recommendation.
+
+
+
+############################# ASSOCIATION RULES ##################################
+
+
+
+
+################################ HOW TO AVOID MISLEADING #########################
+
+Two principles can guide us in assessing rules for possible spuriousness due
+to chance effects:
+
+### 1. The More Records the Rule is Based On, the More Solid the Conclusion
+
+- **Explanation**:
+  - This principle highlights that rules derived from a larger number of transactions or records are generally more reliable. The rationale is that larger datasets reduce the likelihood that the observed associations are due to random variations.
+  - For example, if a rule \(\{\text{Milk}\} \rightarrow \{\text{Bread}\}\) is based on thousands of transactions, it is more likely to be a true association rather than a coincidence. Conversely, a rule based on only a few transactions is less trustworthy because it might just be a result of random chance.
+
+### 2. The More Distinct Rules We Consider Seriously, the More Likely It Is That Some Will Be Based on Chance
+
+- **Explanation**:
+  - This principle is about the problem of multiple comparisons. When we examine many potential rules, the probability increases that some of these rules will appear significant purely by chance.
+  - The analogy provided is about coin tossing. If one person tosses a coin 10 times and gets 10 heads, it is surprising. However, if 1000 people each toss a coin 10 times, it is not surprising if at least one person gets 10 heads because of the large number of trials.
+  - In the context of association rules, if we generate a large number of rules, some of them might appear to be significant associations even though they are just random occurrences.
+
+### Managing the Risk of Spurious Rules
+
+- **Statistical Significance and Multiple Comparisons**:
+  - Adjusting for multiple comparisons to ensure statistical significance is complex and often requires formal statistical techniques, which are beyond the scope of simple rule mining.
+  - Techniques such as the Bonferroni correction or false discovery rate (FDR) control are used in statistical analysis to address this, but they are not typically covered in introductory texts on data mining.
+
+- **Practical Approach**:
+  - The passage suggests a practical approach to mitigate the risk of spurious rules:
+    - **Top-Down Evaluation**: Start by evaluating rules based on their practical relevance and business applicability. This helps prioritize rules that are likely to be useful.
+    - **Human Decision-Making**: Limit the number of rules to those that can reasonably be considered by human decision-makers. This natural constraint helps avoid over-reliance on automated rule generation and reduces the risk of including spurious rules.
+
+### Summary
+
+In essence, the passage advises caution in interpreting association rules by emphasizing the importance of:
+1. Basing rules on a sufficient number of records to ensure their reliability.
+2. Recognizing the increased likelihood of spurious rules when considering a large number of potential rules, and managing this by prioritizing rules based on practical significance and limiting the scope to what is manageable for human decision-makers.
+
+This balanced approach helps in making more accurate and actionable insights from association rule mining while avoiding the pitfalls of chance correlations.
