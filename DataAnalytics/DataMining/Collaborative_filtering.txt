@@ -1,0 +1,86 @@
+Collborative Filtering => Identifikasi item yang relevan untuk pengguna tertentu dari sejumlah data yang besar ("Filtering") dengan mempertimbangkan preferensi pengguna lain ("Collaborative")
+
+Data yang diperlukan: 
+- User
+- Item
+- Preferensi
+Preferensi disini dalam format ukuran yang menggambarkan tingkat preferensi pengguna untuk item tersebut (ukuran ini dapat berupa biner dan non-biner). Contoh: rating, click, buy-or-not, etc.
+
+Format penyimpanan data:
+Misalkan terdapat user sebanyak n, U = {u1, u2, ..., un}, dan p items, I = {i1, i2, ..., ip}
+
+- Format matriks
+Jika terdapat n user dan p items, maka matriks dapat berukuran (n x p) atau (p x n).
+
+- Rows of triplet -- (User, Item, preference)
+Format ini adalah alternatif jika dimensi matriks terlalu besar.
+
+
+Binary vs Non-binary preferences:
+- Non-binary preferences => what users think about items
+- Binary preferences => what items they are interested in
+
+Dalam beberapa kasus, kita bisa mengkombinasikan pendekatan keduanya untuk meningkatkan akurasi.
+
+Contoh kasus Netflix Prize Contest (2007): 
+Pemenang dari kontes ini mengkombinasikan Binary preferences dan non-binary preferences. Alasan dari pertimbangan ini adalah sparse pada matriks non-binary diakibatkan dua kemungkinan (tidak tertarik atau memang belum diberi rating). Dengan mempertimbangkan pengguna yang memberi rating pasti sudah menonton sedangkan yang tidak menonton pasti tidak memberi rating maka pendekatan binary menonton-tidak dapat dipakai. Hasilnya sistem rekomendasi dapat mengidentifikasi film mana yang pengguna suka meskipun mereka belum memberikan rating.
+
+
+Menghitung seberapa "dekat" preferensi dua user atau item:
+(1) Pearson
+(2) Cosine similarity
+
+NOTE: 
+- Jika preferensi adalah non-biner pastikan tidak mempertimbangkan nilai nol (abaikan item jika salah satu user memiliki nilai preferensi nol) untuk mencegah distorsi dari hasil.
+
+- Hal ini karena cosine similarity dan pearson correlation didesain untuk mengukur derajat korelasi antara dua variable berinteraksi. Memasukkan angka nol (yang pada dasarnya bukan interaksi) dapat mendistorsi ukuran-ukuran ini.
+
+
+User-Based Collaborative Filtering:
+- Concept: Mencari pengguna-pengguna lain dengan preferensi yang sama dengan target pengguna dan kemudian rekomendasikan item-item yang mereka suka tapi belum dibeli oleh target pengguna.
+
+- Algoritma: (1) Memilih top-k pengguna dengan preferensi yang paling mirip (2) Pilih item yang paling terbaik dari tiap k pengguna. (NOTE: Untuk rating data bisa rating tertinggi atau untuk transaksi biner data bisa item yang paling banyak dibeli)
+
+- Salah satu solusi untuk large user database: Clustering pengguna sehingga diperoleh klaster dengan preferensi homogen tiapnya kemudian bandingkan target user dengan tiap klaster.
+
+ Kelemahan: Kurang akurat karena sulit untuk mendapatkan klaster dengan preferensi yang homogen.
+
+ Kelebihan: Lebih cepat karena collaborative dikerjakan secara real time sedangkan clustering dikerjakan offline.
+
+
+Item-Based Collaborative Filtering:
+- Ketika jumlah pengguna jauh lebih besar daripada jumlah item, maka secara komputasi akan lebih murah (dan lebih cepat) untuk menemukan item yang serupa daripada pengguna yang serupa. Khususnya, ketika pengguna menyatakan minat pada item tertentu.
+
+- Algoritma: (1) Temukan item yang dinilai bersama, atau dibeli bersama, (oleh pengguna mana pun) dengan item yang diminati (2) Merekomendasikan item yang paling populer atau berkorelasi di antara item yang serupa.
+
+Kekurangan: Dihasilkan output yang cenderung less diversity. Jika para pengguna umumnya memiliki selera pada item yang sama, maka rekomendasi akan merujuk pada item yang secara karakteristik sama. 
+
+Contoh: Jika terdapat 10 pengguna yang menyukai film superhero. Maka rekomendasi akan cenderung merekomendasika film superhero daripada film jenis lainnya. Hal ini karena basis perhitungannya adalah similaritas antar item.
+
+
+Kelemahan:
+- Tidak bisa digunakan pada new user atau new item. Perlu modifikasi untuk mengatasi ini.
+- Ketika jumlah user terlalu banyak, memakan Waktu yang lama. Solusi: Pakai item-based algorithm, Clustering users, dan dimension reduction (misal dengan algoritma SVD).
+- Karena unsupervised learning, sulit mengukur akurasi system. Biasanya perlu feedback dari user untuk mengukur performa system.
+
+
+Collaborative Filtering vs Association Rules:
+- Data association rules adalah transactional sedangkan collaborative filtering adalah user data.
+
+- Tingkat operasi
+Association rules => basket level (Database dapat multiple transactions for each user) 
+NOTE: Rekomendasi item berdasarkan pembelian bersama dengan item lain berdasarkan riwayat semua transaksi/basket.
+Contoh output: "Frequently Bought Together" di Amazon.
+
+Collaborative filtering => user level.
+NOTE: Rekomendasi item berdasarkan pembelian/penilaian Bersama oleh sejumlah pengguna lain.
+Contoh output: "Customers Who Bought This Item Also Bought..." di Amazon.
+
+- Binary data and ratings data: 
+Association rules => Biner data
+Collaborative filtering => Binary & Non-binary data
+
+- Recommendation output:
+Association rules => Paket barang yang diminati dengan beberapa barang ("beli susu, biskuit, dan cornflake dan dapatkan diskon 10%").
+
+Collaborative rules => Bisa satu barang atau lebih tapi tidak bersifat paket.
