@@ -1,0 +1,54 @@
+1. Basic items.py file:
+     > Purpose: Organizing the program by defining items on separate file also can do some post modification data.
+
+2. Implementation (basic):
+   - Define Item class:
+
+       # Inside item.py file
+
+       import scrapy
+        
+       class <Item name>(scrapy.Item):
+	# NOTE: The store data name is defined as attribute's name. Its value of each attribute is scrapy.Field object.
+	data_1 = scrapy.Field()
+	data_2 = scrapy.Field()
+	## And so on ##
+
+    - Using serializer argument for modification data, alternative using pipeline file:
+
+       # Inside item.py file
+
+       import scrapy
+	
+       # Define serializer function.
+       def <serializer_function>(value):
+	 return <modification result value>
+        
+       class <Item name>(scrapy.Item):
+	data_1 = scrapy.Field()
+	data_2 = scrapy.Field(serializer=<serializer_function>) # Pass the function of serializer as argument of serializer.
+	## And so on ##
+
+
+   - Connect the Item class into spider file:
+       
+        # Inside <current spider> file
+
+	import scrapy
+	# Import the Item class from items file
+	from <path items file> import <Class Items>
+	
+	class <Spider name>(scrapy.Spider):
+	
+  	  # For example we want to store the data into some function/callback (it could be parse method or custom callback)
+	  def <some callback function>(self, response):
+	    # 1. Define object.
+	    <Object name> = <Class Items>()
+          
+            ## Some codes
+	    # 2. Store the data into object.
+            <Object name>['<attribute>'] = <data for storing>
+	    ## And so on...
+          
+            # 3. Yield the object as our result.
+            yield <Object name> 

@@ -1,0 +1,56 @@
+1. Basic pipelines.py file:   
+	> Purpose: Allow to perform operations (post-processing) on the scraped data, such as cleaning, validating, saving to databases, or exporting to files.
+	> Components (must): Inside a pipeline class, must have "process_item" method.
+	> Reference Docs: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+2. Implementation (basic):
+
+   - Define Pipeline class:
+
+     # Inside pipeline.py file
+
+     # useful for handling different item types with a single interface
+     # It is not depend on the item's specific type (it for general item's type).
+
+     from itemadapter import ItemAdapter
+
+     # How ItemAdapter Helps:
+     # - Uniform Access: You can access and set fields using adapter.get('field_name') or adapter['field_name'] without worrying about the item’s type (dictionary or Item object).
+     # - Flexible Field Modification: If the item is a custom class or a dictionary, ItemAdapter provides a unified way to add or modify fields.
+     # - Compatibility: ItemAdapter makes it easier to handle complex or custom item structures without needing conditional checks for each type.
+
+
+     # 1. Define a pipeline class
+     class <Pipeline name>:
+
+       
+       # 2. Define process_item method, This method is a required method for a Scrapy pipeline.
+       def process_item(self, item, spider):
+         # NOTE:
+	 #   - The "item" parameter represents the current item being processed.
+         #   - The "spider" parameter is a reference to the spider that scraped the item, allowing access to spider-specific properties if needed.
+
+	 ## SOME CODES ##
+         
+         # Define the ItemAdapter object (optional)
+         adapter = ItemAdapter(item)
+         # NOTE: It wraps around the item object that provides a consistent interface to access, set, and modify item fields, regardless of the item’s type.
+
+	 ## SOME CODES ##
+
+         return item
+
+   - Enable the Pipeline in settings.py
+     On the settings.py => configure item pipelines option => Uncomment "ITEM_PIPELINES" variable.
+
+     # Configure item pipelines
+     # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+     ITEM_PIPELINES = {
+       "<project name>.pipelines.<Pipeline name>": 300,
+      }
+     # NOTE: The value of dictionary (integer) represent the priority order. Lower numbers have higher priority, meaning they are executed earlier in the pipeline chain.
+
+
+3. Create Pipeline for Connecting to Database
+ - connect with postgresql: https://thepythonscrapyplaybook.com/scrapy-save-data-postgres/
+ - connect with mysql: https://thepythonscrapyplaybook.com/scrapy-save-data-mysql/

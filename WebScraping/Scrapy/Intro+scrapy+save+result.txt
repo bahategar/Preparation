@@ -1,0 +1,81 @@
+1. How to create a scrapy project
+   A. Requirements:
+        i. scrapy
+	ii. ipython ==> (for create scrapy shell; define it as shell variable, shell=ipython, on scrapy.cfg)
+
+   B. Start project
+	i.  Create virtual environment and install requirements
+	ii. Initialize project scrapy
+  		a. at terminal write command "scrapy startproject <projectname>"
+ 		b. change directory to the <projectname> 
+    			(NOTE: you can change to anywhere place as long as inside the <projectname> directory; e.g inside "spiders" folder)
+  		c. generate new spider by write command: "scrapy genspider <name spider> <allowed scraped domain>
+  		d. for crawling spider write command: "scrapy crawl <spider_name> " 
+	iii. Saving scrapped file
+     		a. Directly on terminal (csv, json, or text file): "scrapy crawl <spider_name> -O <path + filename with its extension>"
+		b. Inside the current spider class define "custom_settings" attribute:
+
+			class SpiderName(scrapy.Spider):
+
+				## PREVIOUS CODE ##
+				custom_settings = { 'FEEDS' : {
+                            		'booksdata.json': {
+                                    		'format': 'json',
+                                    		'encoding': 'utf8',
+                                    		'store_empty': False,
+                                    		'fields': None,
+                                    		'indent': 4,
+                            			},
+                          		}
+                        	}
+
+			       ## NEXT CODE ##
+		   NOTE: It will overwrite the default setting. Also we do not have to write additional command "-O <filename with its extension>"
+
+		c. Inside the settings.py file define "FEEDS" variable:
+			- For csv file:
+				FEEDS = {
+              				'booksdata.csv': {
+                  				'format': 'csv',
+                  				'encoding': 'utf8',
+                  				'store_empty': False,
+                  				'fields': None,
+                  				'overwrite': True,
+              					},
+          				}
+
+      			- For json file:
+       				FEEDS = {
+              				'booksdata.json': {
+                  				'format': 'json',
+                  				'encoding': 'utf8',
+                  				'store_empty': False,
+                  				'fields': None,
+                  				'indent': 4,
+              					},
+          				}
+
+2. Overview of the scrapy project
+   A. spiders folder: Folder that spiders program exist.
+	Basic class' method by default (After spider's command is created)
+        > "name" attribute (string) => The spider' name
+	> "allowed_domains" attribute (list of string) => The list of domain that spider only crawl to. If the spider encounters links to other domains, it will ignore them.
+	> "start_urls" attribute (list of string) => The list specifies of the starting point(s) for the spider.
+	> "parse" method => The default callback function in Scrapy for handling the response of each URL it visits. Scrapy automatically passes the response object of the requested URL to this method.
+
+   B. The pipelines.py file: File for defining item pipelines, which are responsible for processing and storing the data extracted by spider.
+	> Purpose: Allow to perform operations on the scraped data, such as cleaning, validating, saving to databases, or exporting to files.
+	> Usage: Create pipeline classes (name the class anything we want) and define "process_item" method in each class. This method is automatically called for each item that passes through the pipeline.
+
+   C. The middlewares.py file: File for define custom middlewares, are hooks between the Scrapy engine and the downloader (for downloader middlewares) or the Scrapy engine and the spider (for spider middlewares)
+	> Purpose: Middleware allow us to manipulate requests and responses, such as adding headers, handling proxies, retrying failed requests, and processing errors.
+	> Types of middlewares:
+	    - Downloader Middlewares: The scope area from server and Scrapy engine.
+	    - Spider Middleware: The scope area from Scrapy engine and spider
+
+   D. The items.py file: File where we define item classes, which represent the data we want to scrape. The items class like containers for structured data.
+	> Purpose: Organizing the program by defining items on separate file.
+
+   E. The settings.py file: File for configure the global settings for Scrapy project.
+	> Purpose: Control the behavior of Scrapy project by setting parameters like request rate, retry policies, and timeout limits.
+	NOTE: We can also add custom settings and enable Scrapy extensions and logging configurations.

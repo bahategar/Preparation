@@ -1,0 +1,40 @@
+1. Basic components Spider class
+	> "name" attribute (string) => The spider' name
+	> "allowed_domains" attribute (list of string) => The list of domain that spider only crawl to. If the spider encounters links to other domains, it will ignore them.
+	> "start_urls" attribute (list of string) => The list specifies of the starting point(s) for the spider.
+	> "parse" method => contains parameter response object. This response object is a response result from server-engine scope area.
+
+
+
+2. Implementation (basic):
+
+       # Inside <current spider> file
+
+       import scrapy
+        
+
+       class <SpiderName>(scrapy.Spider):
+         name = <spiderName>
+         allowed_domains = [<allowed domains>]
+         start_urls = [<starting point urls>]
+		  
+	 def parse(self, response):
+       
+	   ## SOME CODES ##
+
+           yield <expected result>	 
+
+        NOTE: 
+          - The parse() method will be called to handle each of the requests for those URLs, even though we haven’t explicitly told Scrapy to do so. This happens because parse() is Scrapy’s default callback method, which is called for requests without an explicitly assigned callback.
+          - A Scrapy spider typically generates many dictionaries containing the data extracted from the page. To do that, we use the yield Python keyword in the parse method or any callback.
+
+
+3. Some common response attribute or method:
+	- response.xpath(<xpath>) ==> Get element on html with xpath format
+        - response.css(<css>) ==> Get element on html in css format
+        - response.follow(url=<path; absolute or relative path>, callback=None, method='GET', headers=None, 
+				body=None, cookies=None, meta=None, 
+				encoding='utf-8', priority=0, dont_filter=False, 
+				errback=None, cb_kwargs=None) ==> Return a Request instance to follow a link url.
+
+	Read more: https://docs.scrapy.org/en/1.8/topics/request-response.html#response-objects
