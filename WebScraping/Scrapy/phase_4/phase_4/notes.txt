@@ -1,0 +1,11 @@
+The goals:
+- How to create pipeline for storing scrapped data into database (in this case postgresql)
+- How to save scrapped data into text file inside settings.py file.
+
+Modification code:
+- pipeline.py file:
+    (1) Define pipeline for saving scrapped data into postgresql.
+
+- settings.py file:
+    (1) Define FEEDS variable for setting up scrapped data text file format and its location.
+    (2) Activate the storing data to postgresql pipeline by defining it inside ITEM_PIPELINES variable.

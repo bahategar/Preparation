@@ -1,0 +1,13 @@
+1. Basic middleware.py file:
+	> There are two main types:
+	  - Downloader Middleware: Processes requests and responses between the Scrapy engine and the server.
+	  - Spider Middleware: Processes items and requests between the spider and the Scrapy engine.
+
+2. More detail explanation of methods middleware:
+	> Explanation from_crawler(cls, crawler) method:
+		- cls: class, commonly the code is written below decorator @classmethod so it reference to the current class.
+		- crawler: Crawler object that uses current middleware. Crawler object provides access to all Scrapy core components like settings and signals; it is a way for middleware to access them and hook its functionality into Scrapy.
+
+	> Downloader middleware reference: https://docs.scrapy.org/en/2.11/topics/downloader-middleware.html
+
+	> Spider middleware reference: https://docs.scrapy.org/en/2.11/topics/spider-middleware.html

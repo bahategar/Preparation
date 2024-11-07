@@ -2,6 +2,8 @@
    A. Requirements:
         i. scrapy
 	ii. ipython ==> (for create scrapy shell; define it as shell variable, shell=ipython, on scrapy.cfg)
+	iii. psycopg2 (in case using PostgreSQL)
+	iv. mysql (in case using MySQL)
 
    B. Start project
 	i.  Create virtual environment and install requirements

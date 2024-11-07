@@ -114,7 +114,12 @@ class ScrapeOpsFakeUserAgentMiddleware:
 
     @classmethod
     def from_crawler(cls, crawler):
+        # NOTE:
+        # - @classmethod Decorator: Indicates that from_crawler is a class method, meaning it is called on the class itself (not an instance).
+        # - cls Parameter: Refers to the class ScrapeOpsFakeUserAgentMiddleware itself, not an instance of it.
+        # - crawler: Refers to crawler object
         return cls(crawler.settings)
+        # In this case, Scrapy passes the crawler object automatically, giving access to settings.
 
     def __init__(self, settings):
         self.scrapeops_api_key = os.getenv('SCRAPEOPS_API_KEY')
@@ -127,7 +132,7 @@ class ScrapeOpsFakeUserAgentMiddleware:
         self._get_user_agents_list()
         self._scrapeops_fake_user_agents_enabled()
 
-        # Or we can define it inside settings.py
+        # Or we can define it inside settings.py since the Scrapy already give access (see from_crawler method)
         # self.scrapeops_api_key = settings.get('SCRAPEOPS_API_KEY')
         # self.scrapeops_endpoint = settings.get('SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT',  'http://headers.scrapeops.io/v1/user-agents?')
         # self.scrapeops_fake_user_agents_active = settings.get('SCRAPEOPS_FAKE_USER_AGENT_ENABLED')
@@ -162,7 +167,12 @@ class ScrapeOpsFakeBrowserHeaderAgentMiddleware:
 
     @classmethod
     def from_crawler(cls, crawler):
+        # NOTE:
+        # - @classmethod Decorator: Indicates that from_crawler is a class method, meaning it is called on the class itself (not an instance).
+        # - cls Parameter: Refers to the class ScrapeOpsFakeBrowserHeaderAgentMiddleware itself, not an instance of it.
+        # - crawler: Refers to crawler object
         return cls(crawler.settings)
+        # In this case, Scrapy passes the crawler object automatically, giving access to settings.
     
     def __init__(self, settings):
         self.scrapeops_api_key = os.getenv('SCRAPEOPS_API_KEY')

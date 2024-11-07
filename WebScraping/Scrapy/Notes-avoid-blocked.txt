@@ -1,19 +1,59 @@
-Why we get blocked when web scraping?
-- What is headers?
-  Headers is place to store metadata about the request or response.
+1. What is headers?
+   Headers is place to store metadata about the request or response.
+
+2. Why we get blocked when web scraping?
+
 
   Some websites have its antibot, so to avoid getting blocked from website we just need to modify the headers. 
-  In general there are two level to avoid getting blocked:
+  In general there are three level to avoid getting blocked:
     (1) Modify its user-agent only in each request ==> For simple antibot, they just check the user-agent only and assume
           different user-agent means different person.
 
-        NOTE: User-agent is sub-part of headers that give information about 
-    (2) Modify all headers request information (and ip address) in each request ==> In case of modification all headers, we need to modify our ip address too.
-          Basically, we need proxy (third-party to access a website) that can help modify ip address.
+        NOTE: User-agent is sub-part of headers that give information about our agent (simplify information about our browser)
+    (2) Modify ip address in each request ==> It requires using a proxy, VPN, or rotating IP service. Changing IP addresses frequently helps evade more advanced tracking techniques, but it requires external tools or services.
+
+    (3) Modify all headers request information in each request ==>  Modifying all headers is the most complex because it involves configuring numerous details (like cookies, accept-language, cache-control, etc.), each of which can affect server response and detection methods. It requires careful adjustment to avoid inconsistencies and ensure the headers mimic a legitimate user accurately.
           
 
   NOTE: For complex antibot, we have to modify all headers in each request.
 
-Explaining & Using User Agents to ByPass Getting blocked
 
-Explaining & Using Request Headers to ByPass Getting Blocked
+3. How to modify user-agent:
+   i. In settings.py ==> by define variable "USER_AGENT"
+     
+      # In settings.py
+      
+      ## SOME CODE ##
+
+      USER_AGENT = <user agent name>
+      
+      ## SOME CODE ##
+   
+   ii. In current spider file ==> Pass it as argument of headers in follow method response (or each time we want to make a request at specific page)
+
+      # In current spider file
+      import scrapy
+        
+
+      class <SpiderName>(scrapy.Spider):
+          name = <spiderName>
+          allowed_domains = [<allowed domains>]
+          start_urls = [<starting point urls>]
+		  
+	  def parse(self, response):
+       
+	      ## SOME CODES ##
+
+              yield response.follow(url=<path; absolute or relative path>, headers={'User-Agent': <user agent name>}
+      
+             ## SOME CODE ##
+
+    iii. In middleware file (inside Downloader Middleware).
+
+4. How to modify ip address using proxy
+   - What is proxy?
+	> A proxy server is a system or router that provides a gateway between users and the internet.
+	> It is a server, referred to as an “intermediary” because it goes between end-users and the web pages they visit online.
+
+   - Simplest way to use proxy is by using middleware package called "scrapy-rotating-proxies" (Ref: https://pypi.org/project/scrapy-rotating-proxies/)
+   - Another way we can subscribe proxy provider and integrate its API into our code.

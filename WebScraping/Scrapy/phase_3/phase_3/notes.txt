@@ -1,0 +1,20 @@
+The goals:
+- Explaining how to save scrapped data inside the current spider file
+- Explaining how to use scrapy.Item for structuring scrapped data.
+- Explaining how to use pipeline for post proprecssing scrapped data.
+
+Modification code:
+- spiders.py file:
+    (1) Import specific item class.
+    (2) Define specific item object for structuring scrapped data.
+    (3) Saving the scrapped data with item object approach code.
+    (4) Define custom_settings attribute for saving scrapped data into text file.
+
+- items.py file:
+    (1) Define specific item class.
+
+- pipeline.py file:
+    (1) Define pipeline for post preprocessing scrapped data.
+
+- settings.py file:
+    (1) Activate the post preprocessing pipeline by defining it inside ITEM_PIPELINES variable.

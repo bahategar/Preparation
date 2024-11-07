@@ -1,0 +1,10 @@
+The goals:
+- Explaining introduction how spider works
+- Explaining how to use ipython package as scrapy shell
+
+Modification code:
+- spiders.py file:
+    (1) Code for scraping data.
+
+- scrapy.cfg file:
+    (1) Set shell=ipython.

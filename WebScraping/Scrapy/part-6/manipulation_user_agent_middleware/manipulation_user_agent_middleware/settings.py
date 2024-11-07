@@ -13,6 +13,13 @@ SPIDER_MODULES = ["manipulation_user_agent_middleware.spiders"]
 NEWSPIDER_MODULE = "manipulation_user_agent_middleware.spiders"
 
 
+SCRAPEOPS_API_KEY='xxxxxxxxxxxxxxxxxxxxxx'
+SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT='https://headers.scrapeops.io/v1/user-agents'
+SCRAPEOPS_FAKE_USER_AGENT_ENABLED=True
+SCRAPEOPS_NUM_RESULTS=50
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = 'http://headers.scrapeops.io/v1/browser-headers'
+SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "manipulation_user_agent_middleware (+http://www.yourdomain.com)"
 
