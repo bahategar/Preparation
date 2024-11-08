@@ -1,0 +1,37 @@
+1. Basic Activation:
+	i. Installation ==> (1) Install package: pip install scrapy-playwright (2) Install browser(s): playwright install
+	ii. In setting.py, add two variables below:
+		(1) # settings.py
+			DOWNLOAD_HANDLERS = {
+    				"http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    				"https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+			}
+		(2) # settings.py
+			TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+
+	iii. Set the "playwright" Request.meta key to download a request using Playwright:
+		# current spider file
+		import scrapy
+
+		class <Spider Class Name>(scrapy.Spider):
+    		    name = <Spider Name>
+
+    		    def start_requests(self):
+        	        # GET request
+                        yield scrapy.Request(<String URL>, meta={"playwright": True})
+
+		        # POST request
+			yield scrapy.FormRequest(
+			    url=<String URL>,
+            		    formdata={"foo": "bar"},
+                            meta={"playwright": True},
+                        )
+
+	           def parse(self, response, **kwargs):
+        	       # 'response' contains the page as seen by the browser
+        	       ## CODE BELOW ##
+
+
+2. References
+	> https://github.com/scrapy-plugins/scrapy-playwright
+	> documentation Page object playwright: https://playwright.dev/python/docs/api/class-page
