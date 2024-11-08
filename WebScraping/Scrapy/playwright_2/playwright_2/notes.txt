@@ -1,0 +1,9 @@
+The goals:
+- Explaining how to wait for the page to finish loading
+
+Modification code:
+- spiders.py file:
+    (1) Code for wait the page to finish loading.
+
+- items.py file:
+    (1) Code for define Item class.

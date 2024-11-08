@@ -1,0 +1,9 @@
+The goals:
+- Explaining minimum requirement for using scrapy-playwright
+
+Modification code:
+- spiders.py file:
+    (1) Code for using scrapy-playwright.
+
+- items.py file:
+    (1) Code for define Item class.

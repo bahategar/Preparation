@@ -1,0 +1,9 @@
+The goals:
+- Explaining how to scrape multiple page
+
+Modification code:
+- spiders.py file:
+    (1) Code for scraping multiple page.
+
+- items.py file:
+    (1) Code for define Item class.
