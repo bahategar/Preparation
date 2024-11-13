@@ -26,9 +26,16 @@
    - DELETE: Remove data from the server
 
 5. What is User Agent?
-   > User agent is string that helps the server identify the client making the request. The string contains details such as:
+   > User agent: Data that identifies the client software (like a browser) making the request. 
+User agent is string that helps the server identify the client making the request. The string contains details such as:
 	- Browser type and version
 	- Operating system
 	- Device type
 	- Rendering engine
 	- Sometimes languages preferences or other settings.
+
+6. What is Headers?
+   > Headers are meta data (represented as key-value pairs) sent as part of HTTP requests and responses in web communication. 
+   > Type of Headers:
+	- Request Headers: Sent from the client to the server. They contain information about the client's request and details needed for the server to process it.
+	- Response Headers: Sent from the server back to the client. They contain information about the response, like content type, content length, and any caching instructions.
