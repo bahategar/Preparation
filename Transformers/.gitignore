@@ -1,3 +1,5 @@
 /model_demo
 /.venv
 /trainer_demo
+/.ipynb_checkpoints
+/model
