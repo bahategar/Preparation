@@ -1,0 +1,15 @@
+The goals:
+- Explaining how to modify user-agent for each request using custom download
+- Explaining how to rotating the proxy using package scrapy-rotating-proxies
+- Explaining how to modify user-agent and headers (all of them) using APIs, in this case ScrapeOps APIs.
+
+Modification code:
+- middlewares.py file:
+    (1) Define middleware for modification user-agent (case the user-agent is downloaded into local computer as file or defined it as variable in settings.py)
+    (2) Define middleware for modification user-agent and all headers using APIs.
+
+- settings.py file:
+    (1) Activate defined middlewares inside DOWNLOADER_MIDDLEWARES.
+    (2) Define ROTATING_PROXY_LIST for storing the proxies that we want to use with package scrapy-rotating-proxies.
+    (3) Define USER_AGENTS_SETTINGS (it's not fixed, we can define it anything we want) for middleware modification user-agent, case it's defined in setting.py
+    (4) Define required variable for accessing APIs.

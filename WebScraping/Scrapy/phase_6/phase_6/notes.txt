@@ -1,0 +1,10 @@
+The goals:
+- Explaining how to using APIs proxy for modification ip address (In this case using Scrape Ops).
+
+NOTES:
+- Please read the documentation how to access the APIs.
+- Commonly, we need to add url that we want to access as query of the APIs.
+
+Modification code:
+- current spider file:
+    (1) Define function that help to adjust url for request data.
