@@ -4,3 +4,5 @@ The goals:
 Modification code:
 - spiders.py file:
     (1) How to set user-agent for each request that spider do.
+- settings.py file:
+    (1) How to set user-agent in settings file.

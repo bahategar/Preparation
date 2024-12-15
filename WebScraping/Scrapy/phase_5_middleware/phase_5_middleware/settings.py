@@ -22,10 +22,10 @@ FEEDS = { 'booksdata.json':
             },
         }
 
-SCRAPEOPS_API_KEY='8e66c6c3-4d41-418c-9b91-bcb7a75ad4a1'
+SCRAPEOPS_API_KEY=''
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT='https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED=True
-SCRAPEOPS_NUM_RESULTS=50
+SCRAPEOPS_NUM_RESULTS=5
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENDPOINT = 'http://headers.scrapeops.io/v1/browser-headers'
 SCRAPEOPS_FAKE_BROWSER_HEADER_ENABLED = True
 
@@ -79,11 +79,11 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   "phase_5_middleware.middlewares.FakeUserAgentMiddleware": 300,
-    "rotating_proxies.middlewares.RotatingProxyMiddleware": 610,
-    "rotating_proxies.middlewares.BanDetectionMiddleware": 620,
+#    "phase_5_middleware.middlewares.FakeUserAgentMiddleware": 300,
+    # "rotating_proxies.middlewares.RotatingProxyMiddleware": 610,
+    # "rotating_proxies.middlewares.BanDetectionMiddleware": 620,
 #    "phase_5_middleware.middlewares.ScrapeOpsFakeUserAgentMiddleware": 400,
-#    "phase_5_middleware.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware": 400,
+   "phase_5_middleware.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware": 400,
 }
 
 # Enable or disable extensions

@@ -22,7 +22,7 @@ FEEDS = { 'booksdata.json':
             },
         }
 
-SCRAPEOPS_API_KEY='8e66c6c3-4d41-418c-9b91-bcb7a75ad4a1'
+SCRAPEOPS_API_KEY=''
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT='https://headers.scrapeops.io/v1/user-agents'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED=True
 SCRAPEOPS_NUM_RESULTS=50

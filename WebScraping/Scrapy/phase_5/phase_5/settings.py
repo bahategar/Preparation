@@ -25,6 +25,7 @@ FEEDS = { 'booksdata.json':
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "phase_5 (+http://www.yourdomain.com)"
 USER_AGENT = 'Opera/7.11 (Windows NT 5.1; U) [en]'
+## NOTE: SETTING USER_AGENT IN SETTINGS
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
