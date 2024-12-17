@@ -1,0 +1,45 @@
+{
+    "url": "https://quotes.toscrape.com/js",
+    "meta": {
+        "name": "Quotes scraper",
+        "description": "Extract all quotes",
+        "author": "Quentin Bauer",
+        "base_url": "https://quotes.toscrape.com/",
+        "version": 0.1
+    },
+    "containers": [
+        {
+            "name": "quote_divs",
+            "selector": "div.quote",
+            "match": "all",
+            "type": "node",
+            "items": [
+                {
+                    "name": "quote",
+                    "selector": "*[class='text']",
+                    "match": "first",
+                    "type": "text"
+                },
+                {
+                    "name": "author",
+                    "selector": "*[class='author']",
+                    "match": "first",
+                    "type": "text"
+                },
+                {
+                    "name": "tags",
+                    "selector": "*[class='tag']",
+                    "match": "all",
+                    "type": "node"
+                }
+            ]
+        },
+        {
+            "name": "next_button",
+            "selector": ".pager .next a",
+            "match": "first",
+            "type": "node",
+            "items": []
+        }
+    ]
+}
